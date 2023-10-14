@@ -35,5 +35,5 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: NPX
         run: |            
-            npm init
+            npm init --yes
             npm -g install @semantic-release/git semantic-release && semantic-release
