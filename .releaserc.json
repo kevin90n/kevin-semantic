@@ -1,9 +1,5 @@
 {
   "tagFormat": "${version}",
   "branches": ["main", {"name": "beta", "prerelease": true}, {"name": "alpha", "prerelease": true}],
-  "plugins": [
-    ["@semantic-release/npm", {
-      "npmPublish": false,
-    }]],
   "publish": false
 }
