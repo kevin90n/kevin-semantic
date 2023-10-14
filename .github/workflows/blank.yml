@@ -1,38 +1,36 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the workflow will run
+name: Release
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main", "alpha", "beta" ]
+    branches:
+      - master
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+permissions:
+  contents: read # for checkout
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  release:
+    name: Release
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: $GH_TOKEN
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      - name: update repo
-        run: sudo apt-get update
-        
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: sudo apt-get install git nodejs npm
-
-      # Runs a set of commands using the runners shell
-      - name: NPX
-        run: |            
-            npm -g install @semantic-release/git semantic-release && semantic-release
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+      - name: Install dependencies
+        run: npm clean-install
+      - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
+        run: npm audit signatures
+      - name: Release
+        env:
+          GITHUB_TOKEN: $GH_TOKEN
+        run: npx semantic-release
