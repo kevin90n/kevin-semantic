@@ -4,7 +4,6 @@
   "plugins": [
     ["@semantic-release/npm", {
       "npmPublish": false,
-    }],
-  ],
+    }]],
   "publish": false
 }
