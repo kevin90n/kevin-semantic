@@ -1,4 +1,4 @@
 {
   "tagFormat": "${version}",
-  "branches": ["master", {"name": "beta", "prerelease": true}, {"name": "alpha", "prerelease": true}]
+  "branches": ["main", {"name": "beta", "prerelease": true}, {"name": "alpha", "prerelease": true}]
 }
