@@ -34,4 +34,4 @@ jobs:
       - name: NPX
         run: |            
             npm -g install @semantic-release/git semantic-release
-            npx -p semantic-release@^21.0.7 semantic-release
+            #npx -p semantic-release@^21.0.7 semantic-release
