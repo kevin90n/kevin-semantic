@@ -35,4 +35,4 @@ jobs:
         run: |            
             npm -g install @semantic-release/git semantic-release
             semantic-release --version
-            #npx -p semantic-release@^21.0.7 semantic-release
+            #npx -p semantic-release@22.0.5 semantic-release
