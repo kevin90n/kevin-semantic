@@ -1,0 +1,19 @@
+name: "example-cron-action"
+on:
+  schedule:
+    - cron:  '*/2 * * * *'    # At 2am every day
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Merge all development branches -> production
+        uses: bholland-bh/merge-branch@master
+        with:
+          type: now
+          from_branch: beta
+          target_branch: main
+          github_token: ${{ GITHUB_TOKEN }}
