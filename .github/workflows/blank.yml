@@ -1,5 +1,14 @@
 name: Release
-on: *
+on:
+   push:
+     branches:
+       - main
+       - beta
+       - alpha
+   workflow_run:
+      workflows: ["example-cron-action"]
+      types:
+        - completed     
       
 permissions:
   contents: read # for checkout
