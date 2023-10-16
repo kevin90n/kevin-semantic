@@ -16,4 +16,4 @@ jobs:
           type: now
           from_branch: beta
           target_branch: main
-          github_token: ${{ GITHUB_TOKEN }}
+          github_token: ${{ github.token }}
