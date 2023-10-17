@@ -41,7 +41,7 @@ jobs:
           git clone https://github.com/kevin90n/kevin-semantic.git kevin-semantic && cd kevin-semantic          
           git checkout main
           git merge beta
-          git push main
+          git push -u origin main
 
           
   mergealphatobeta:
@@ -53,4 +53,4 @@ jobs:
           git clone https://github.com/kevin90n/kevin-semantic.git kevin-semantic && cd kevin-semantic
           git checkout beta
           git merge alpha
-          git push beta
+          git push -u origin beta
