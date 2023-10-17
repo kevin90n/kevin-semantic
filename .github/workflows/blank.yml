@@ -5,10 +5,10 @@ on:
        - main
        - beta
        - alpha
-   workflow_run:
-      workflows: ["example-cron-action"]
-      types:
-        - completed     
+#   workflow_run:
+#      workflows: ["example-cron-action"]
+#      types:
+#        - completed     
       
 permissions:
   contents: read # for checkout
