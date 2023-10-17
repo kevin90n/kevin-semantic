@@ -44,6 +44,7 @@ jobs:
           git config --global user.email "my_useremail"
           git config --global user.name "my_username"
           git remote set-url origin https://my_username:$GITHUB_TOKEN@github.com/kevin90n/kevin-semantic.git
+          git checkout beta
           git checkout main
           git merge beta
           git push -u origin main
@@ -61,6 +62,7 @@ jobs:
           git config --global user.email "my_useremail"
           git config --global user.name "my_username"
           git remote set-url origin https://my_username:$GITHUB_TOKEN@github.com/kevin90n/kevin-semantic.git
+          git checkout alpha
           git checkout beta
           git merge alpha
           git push -u origin beta
