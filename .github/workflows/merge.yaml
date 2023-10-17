@@ -37,6 +37,8 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Merge beta branch -> main
+        env:
+          GITHUB_TOKEN: ${{ secrets.KEVIN }}
         run: |
           git clone https://github.com/kevin90n/kevin-semantic.git kevin-semantic && cd kevin-semantic          
           git checkout main
@@ -49,6 +51,8 @@ jobs:
     steps:     
       - uses: actions/checkout@master
       - name: Merge alpha branch -> beta
+        env:
+          GITHUB_TOKEN: ${{ secrets.KEVIN }}      
         run: |
           git clone https://github.com/kevin90n/kevin-semantic.git kevin-semantic && cd kevin-semantic
           git checkout beta
