@@ -38,8 +38,10 @@ jobs:
       - uses: actions/checkout@master
       - name: Merge beta branch -> main
         run: |
+          git clone https://github.com/kevin90n/kevin-semantic.git kevin-semantic && cd kevin-semantic          
           git checkout main
           git merge beta
+          git push main
 
           
   mergealphatobeta:
@@ -48,5 +50,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Merge alpha branch -> beta
         run: |
+          git clone https://github.com/kevin90n/kevin-semantic.git kevin-semantic && cd kevin-semantic
           git checkout beta
           git merge alpha
+          git push beta
