@@ -3,11 +3,11 @@
     "branches": [
         "main",
         {
-            "name": "beta",
+            "name": "beta1",
             "prerelease": true
         },
         {
-            "name": "alpha",
+            "name": "alpha1",
             "prerelease": true
         }
     ],
