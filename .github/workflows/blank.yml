@@ -40,4 +40,6 @@ jobs:
       - name: Merge
         env:
           GITHUB_TOKEN: ${{ secrets.KEVIN }}
-        run: ./test.sh -h alpha -b beta 
+        run: |
+           chmod +x ./test.sh
+           ./test.sh -h alpha -b beta 
