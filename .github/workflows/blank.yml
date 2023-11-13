@@ -40,4 +40,4 @@ jobs:
       - name: Merge
         env:
           GITHUB_TOKEN: ${{ secrets.KEVIN }}
-        run: .github/workflows/test.sh -h alpha -b beta 
+        run: ./test.sh -h alpha -b beta 
