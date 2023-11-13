@@ -37,3 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.KEVIN }}
         run: npx semantic-release
+      - name: Merge
+        env:
+          GITHUB_TOKEN: ${{ secrets.KEVIN }}
+        run: .github/workflows/test.sh -h alpha -b beta 
