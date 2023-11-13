@@ -9,6 +9,12 @@ do
     esac
 done
 
+curl -L  -X POST  https://api.github.com/repos/kevin90n/kevin-semantic/pulls \
+    -H "Accept: application/vnd.github+json" \
+    -H "Authorization: Bearer $GITHUB_TOKEN" \
+    -H "X-GitHub-Api-Version: 2022-11-28" \
+    -d '{"title":"chore: automatic merge","body":"Please pull these awesome changes in!","head":\"'"$headbranch"'\","base":\"'"$basebranch"'\"}' 
+
 pr_id=$(curl -L  -X POST  https://api.github.com/repos/kevin90n/kevin-semantic/pulls \
     -H "Accept: application/vnd.github+json" \
     -H "Authorization: Bearer $GITHUB_TOKEN" \
