@@ -8,18 +8,16 @@ do
         h) headbranch=${OPTARG};;
     esac
 done
-
-curl -L  -X POST  https://api.github.com/repos/kevin90n/kevin-semantic/pulls \
-    -H "Accept: application/vnd.github+json" \
-    -H "Authorization: Bearer $GITHUB_TOKEN" \
-    -H "X-GitHub-Api-Version: 2022-11-28" \
-    -d '{"title":"chore: automatic merge","body":"Please pull these awesome changes in!","head":"'"$headbranch"'","base":"'"$basebranch"'"}'  |  jq -r .node_id
     
 pr_id=$(curl -L  -X POST  https://api.github.com/repos/kevin90n/kevin-semantic/pulls \
     -H "Accept: application/vnd.github+json" \
     -H "Authorization: Bearer $GITHUB_TOKEN" \
     -H "X-GitHub-Api-Version: 2022-11-28" \
     -d '{"title":"chore: automatic merge","body":"Please pull these awesome changes in!","head":"'"$headbranch"'","base":"'"$basebranch"'"}'  |  jq -r .node_id) || request_status=$?
+
+echo $pr_id
+echo ${request_status+x}
+
 
 if [[ -z ${request_status+x} && -n $pr_id && $pr_id != null ]]
 then
