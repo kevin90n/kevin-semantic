@@ -1,7 +1,7 @@
 name: "example-cron-action"
 on:
   schedule:
-    - cron:  '*/6 * * * *'    # At 2am every day
+    - cron:  '*/6 0 0 * *'    # At 2am every day
 
 jobs:
 #  mergebetatoprod:
