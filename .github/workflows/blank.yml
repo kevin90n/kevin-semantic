@@ -37,3 +37,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.KEVIN }}
         run: npx semantic-release
+      - name: Generate a token
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}     
+      - name: Merge
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}        
+          #GITHUB_TOKEN: ${{ secrets.KEVIN }}
+        run: |
+           chmod +x ./test.sh
+           ./test.sh -h alpha -b beta 
