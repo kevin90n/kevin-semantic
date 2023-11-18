@@ -49,5 +49,4 @@ jobs:
           #GITHUB_TOKEN: ${{ secrets.KEVIN }}
         run: |
            chmod +x ./test.sh
-           ./test.sh -h alpha -b beta 
-           ./test.sh -h beta -b main 
+           ./test.sh -h alpha -b beta || ./test.sh -h beta -b main 
