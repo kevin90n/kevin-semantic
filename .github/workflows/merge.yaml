@@ -41,8 +41,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.KEVIN }}
         run: |
           git clone https://github.com/kevin90n/kevin-semantic.git kevin-semantic && cd kevin-semantic     
-          #git config --global user.email "my_useremail"
-          #git config --global user.name "my_username"
+          git config --global user.email "my_useremail"
+          git config --global user.name "my_username"
           git remote set-url origin https://$GITHUB_TOKEN@github.com/kevin90n/kevin-semantic.git
           git checkout beta
           git checkout main
@@ -59,8 +59,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.KEVIN }}      
         run: |
           git clone https://github.com/kevin90n/kevin-semantic.git kevin-semantic && cd kevin-semantic
-          #git config --global user.email "my_useremail"
-          #git config --global user.name "my_username"
+          git config --global user.email "my_useremail"
+          git config --global user.name "my_username"
           git remote set-url origin https://$GITHUB_TOKEN@github.com/kevin90n/kevin-semantic.git
           git checkout alpha
           git checkout beta
