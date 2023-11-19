@@ -1,4 +1,4 @@
-aname: "example-cron-action"
+name: "example-cron-action"
 on:
   schedule:
     - cron:  '*/6 * * * *'    # At 2am every day
