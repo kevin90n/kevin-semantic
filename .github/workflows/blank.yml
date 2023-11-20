@@ -33,6 +33,8 @@ jobs:
           node-version: "lts/*"
       - name: install
         run: npm install @semantic-release/git -D
+      - name: install back-merge
+        run: npm install @saithodev/semantic-release-backmerge -D
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.KEVIN }}
