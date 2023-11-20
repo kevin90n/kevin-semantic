@@ -16,11 +16,17 @@
         "@semantic-release/release-notes-generator",
         "@semantic-release/github",
         [
+            "@saithodev/semantic-release-backmerge",
+              {
+                "backmergeBranches": ["alpha"]
+              }
+        ],
+        [
             "@semantic-release/npm",
             {
                 "npmPublish": false
             }
-        ]
+        ],
     ],
     "publish": false
 }
