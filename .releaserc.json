@@ -14,18 +14,18 @@
     "plugins": [
         "@semantic-release/commit-analyzer",
         "@semantic-release/release-notes-generator",
-        "@semantic-release/github",
+    [
+      "@semantic-release/github",
+      {
+        "successComment": false,
+        "failComment": false
+      }
+    ],
         [
             "@saithodev/semantic-release-backmerge",
               {
                 "backmergeBranches": [{"from": "main", "to": "alpha"}, {"from": "main", "to": "beta"}]
               }
-        ],
-        [
-            "@semantic-release/npm",
-            {
-                "npmPublish": false
-            }
         ]
     ],
     "publish": false
