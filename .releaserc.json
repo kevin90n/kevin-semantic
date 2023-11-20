@@ -26,7 +26,7 @@
             {
                 "npmPublish": false
             }
-        ],
+        ]
     ],
     "publish": false
 }
