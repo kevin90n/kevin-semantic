@@ -26,7 +26,7 @@
               {
                 "backmergeBranches": [{"from": "main", "to": "alpha"}, {"from": "main", "to": "beta"}],
                 "backmergeStrategy": "merge",
-                "mergeMode": "theirs"
+                "fastForwardMode": "no-ff"
               }
         ]
     ],
